@@ -1,0 +1,32 @@
+- 👋 Hi, I’m @AmarRich
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+AmarRich/AmarRich is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+	void dfs(vector<vector<int>> &ans,vector<int> &curr,int i,int n){
+  //   when n is 0 than just insert inside it in ans
+	    if(n==0){ ans.push_back(curr); return; }
+	    if(i==0) return;
+	    if(i<=n) {
+	        curr.push_back(i); 
+	        dfs(ans,curr,i,n-i);
+	        curr.pop_back();
+	    }
+	    dfs(ans,curr,i-1,n);
+	}
+	
+    vector<vector<int>> UniquePartitions(int n) {
+        // Code here
+        vector<vector<int>> ans;
+        vector<int> curr;
+        dfs(ans,curr,n,n);
+        return ans;
+        }
+        
+
+
